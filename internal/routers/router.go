@@ -18,6 +18,8 @@ func SetupRouter() *gin.Engine {
 	{
 		public.POST("/register", controllers.Register)
 		public.POST("/login", controllers.Login)
+		public.GET("/organisations/total", controllers.GetTotalOrganisations)
+
 	}
 
 	// Защищенные маршруты
@@ -27,6 +29,7 @@ func SetupRouter() *gin.Engine {
 	{
 		protected.GET("/organisations", controllers.GetOrganisations)
 		protected.GET("/organisations/:id", controllers.GetOrganisationById)
+
 	}
 
 	return router
