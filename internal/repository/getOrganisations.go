@@ -38,8 +38,40 @@ func GetOrganisations(search string, limit, offset int) ([]models.EducationOrgan
 
 	for rows.Next() {
 		var org models.EducationOrganization
-
+		err := rows.Scan(
+			&org.ID,
+			&org.FullName,
+			&org.ShortName,
+			&org.HeadEduOrgId,
+			&org.IsBranch,
+			&org.PostAddress,
+			&org.Phone,
+			&org.Fax,
+			&org.Email,
+			&org.WebSite,
+			&org.OGRN,
+			&org.INN,
+			&org.KPP,
+			&org.HeadPost,
+			&org.HeadName,
+			&org.FormName,
+			&org.KindName,
+			&org.TypeName,
+			&org.RegionName,
+			&org.FederalDistrictShortName,
+			&org.FederalDistrictName,
+		)
+		if err != nil {
+			logger.Error("Ошибка при чтении строки результата ", err)
+			return nil, err
+		}
 		result = append(result, org)
+	}
+
+	// Проверяем ошибки после цикла
+	if err = rows.Err(); err != nil {
+		logger.Error("Ошибка после итерации по строкам ", err)
+		return nil, err
 	}
 
 	return result, err
