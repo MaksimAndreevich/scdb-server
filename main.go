@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gitlab.com/scdb/core/config"
-	database "gitlab.com/scdb/database/services"
+	"gitlab.com/scdb/server/internal/config"
+	"gitlab.com/scdb/server/internal/database"
 	"gitlab.com/scdb/server/internal/routers"
 )
 

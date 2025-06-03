@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	repo "gitlab.com/scdb/database/repository"
+	"gitlab.com/scdb/server/internal/repository"
 )
 
 func GetOrganisations(c *gin.Context) {
@@ -27,7 +27,7 @@ func GetOrganisations(c *gin.Context) {
 	}
 
 	// Получаем данные из репозитория
-	orgs, err := repo.GetOrganisations(search, limit, offset)
+	orgs, err := repository.GetOrganisations(search, limit, offset)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Ошибка при получении организаций"})

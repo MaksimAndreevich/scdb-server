@@ -4,13 +4,13 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	repo "gitlab.com/scdb/database/repository"
+	"gitlab.com/scdb/server/internal/repository"
 )
 
 func GetOrganisationById(c *gin.Context) {
 	id := c.Param("id")
 
-	org, err := repo.GetOrganisationById(id)
+	org, err := repository.GetOrganisationById(id)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Ошибка при получении организации по ID"})
 		return
