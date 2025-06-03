@@ -18,6 +18,8 @@ const Query = `
 			LOWER(full_name) LIKE LOWER($1) OR
 			LOWER(short_name) LIKE LOWER($1) OR
 			LOWER(region_name) LIKE LOWER($1) OR
+			LOWER(post_address) LIKE LOWER($1) OR
+			LOWER(head_name) LIKE LOWER($1) OR
 			LOWER(federal_district_name) LIKE LOWER($1)
 		ORDER BY full_name
 		LIMIT $2 OFFSET $3;
