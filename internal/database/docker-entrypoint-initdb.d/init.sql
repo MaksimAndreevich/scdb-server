@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS education_organizations (
+    id TEXT PRIMARY KEY,
+    full_name TEXT,
+    short_name TEXT,
+    head_edu_org_id TEXT,
+    is_branch BOOLEAN,
+    post_address TEXT,
+    phone TEXT,
+    fax TEXT,
+    email TEXT,
+    web_site TEXT,
+    ogrn TEXT,
+    inn TEXT,
+    kpp TEXT,
+    head_post TEXT,
+    head_name TEXT,
+    form_name TEXT,
+    kind_name TEXT,
+    type_name TEXT,
+    region_name TEXT,
+    federal_district_short_name TEXT,
+    federal_district_name TEXT
+); 
