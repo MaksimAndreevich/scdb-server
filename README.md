@@ -67,6 +67,12 @@ cd server
 docker-compose up --build
 ```
 
+Запустить без кеша
+
+```bash
+docker-compose up --no-cache
+```
+
 3. Остановка проекта:
 
 ```bash
@@ -77,6 +83,12 @@ docker-compose down -v
 
 ```bash
 docker ps
+```
+
+5. Посмотреть логи
+
+```bash
+docker-compose logs -f
 ```
 
 ### Переменные окружения
