@@ -5,108 +5,108 @@ import "encoding/xml"
 // Описание полей можно посмотреть в scructure-example.xml
 
 type OpenData struct {
-	XMLName      xml.Name      `xml:"OpenData"`
-	Certificates []Certificate `xml:"Certificates>Certificate"`
+	XMLName      xml.Name      `xml:"OpenData" json:"-"`
+	Certificates []Certificate `xml:"Certificates>Certificate" json:"certificates"`
 }
 
 type Certificate struct {
-	XMLName                          xml.Name              `xml:"Certificate"`
-	ID                               string                `xml:"Id"`
-	IsFederal                        string                `xml:"IsFederal"` // 1 - федеральное, 0 - региональное
-	StatusName                       string                `xml:"StatusName"`
-	TypeName                         string                `xml:"TypeName"`
-	RegionName                       string                `xml:"RegionName"`
-	RegionCode                       string                `xml:"RegionCode"`
-	FederalDistrictName              string                `xml:"FederalDistrictName"`
-	FederalDistrictShortName         string                `xml:"FederalDistrictShortName"`
-	RegNumber                        string                `xml:"RegNumber"`
-	SerialNumber                     string                `xml:"SerialNumber"`
-	FormNumber                       string                `xml:"FormNumber"`
-	IssueDate                        string                `xml:"IssueDate"`
-	EndDate                          string                `xml:"EndDate"`
-	ControlOrgan                     string                `xml:"ControlOrgan"`
-	PostAddress                      string                `xml:"PostAddress"`
-	EduOrgFullName                   string                `xml:"EduOrgFullName"`
-	EduOrgShortName                  string                `xml:"EduOrgShortName"`
-	EduOrgINN                        string                `xml:"EduOrgINN"`
-	EduOrgKPP                        string                `xml:"EduOrgKPP"`
-	EduOrgOGRN                       string                `xml:"EduOrgOGRN"`
-	IndividualEntrepreneurLastName   string                `xml:"IndividualEntrepreneurLastName"`
-	IndividualEntrepreneurFirstName  string                `xml:"IndividualEntrepreneurFirstName"`
-	IndividualEntrepreneurMiddleName string                `xml:"IndividualEntrepreneurMiddleName"`
-	IndividualEntrepreneurAddress    string                `xml:"IndividualEntrepreneurAddress"`
-	IndividualEntrepreneurEGRIP      string                `xml:"IndividualEntrepreneurEGRIP"`
-	IndividualEntrepreneurINN        string                `xml:"IndividualEntrepreneurINN"`
-	ActualEducationOrganization      EducationOrganization `xml:"ActualEducationOrganization"`
-	Supplements                      []Supplement          `xml:"Supplements>Supplement"`
-	Decisions                        []Decision            `xml:"Decisions>Decision"`
+	XMLName                          xml.Name              `xml:"Certificate" json:"-"`
+	ID                               string                `xml:"Id" json:"id"`
+	IsFederal                        string                `xml:"IsFederal" json:"isFederal"` // 1 - федеральное, 0 - региональное
+	StatusName                       string                `xml:"StatusName" json:"statusName"`
+	TypeName                         string                `xml:"TypeName" json:"typeName"`
+	RegionName                       string                `xml:"RegionName" json:"regionName"`
+	RegionCode                       string                `xml:"RegionCode" json:"regionCode"`
+	FederalDistrictName              string                `xml:"FederalDistrictName" json:"federalDistrictName"`
+	FederalDistrictShortName         string                `xml:"FederalDistrictShortName" json:"federalDistrictShortName"`
+	RegNumber                        string                `xml:"RegNumber" json:"regNumber"`
+	SerialNumber                     string                `xml:"SerialNumber" json:"serialNumber"`
+	FormNumber                       string                `xml:"FormNumber" json:"formNumber"`
+	IssueDate                        string                `xml:"IssueDate" json:"issueDate"`
+	EndDate                          string                `xml:"EndDate" json:"endDate"`
+	ControlOrgan                     string                `xml:"ControlOrgan" json:"controlOrgan"`
+	PostAddress                      string                `xml:"PostAddress" json:"postAddress"`
+	EduOrgFullName                   string                `xml:"EduOrgFullName" json:"eduOrgFullName"`
+	EduOrgShortName                  string                `xml:"EduOrgShortName" json:"eduOrgShortName"`
+	EduOrgINN                        string                `xml:"EduOrgINN" json:"eduOrgINN"`
+	EduOrgKPP                        string                `xml:"EduOrgKPP" json:"eduOrgKPP"`
+	EduOrgOGRN                       string                `xml:"EduOrgOGRN" json:"eduOrgOGRN"`
+	IndividualEntrepreneurLastName   string                `xml:"IndividualEntrepreneurLastName" json:"individualEntrepreneurLastName"`
+	IndividualEntrepreneurFirstName  string                `xml:"IndividualEntrepreneurFirstName" json:"individualEntrepreneurFirstName"`
+	IndividualEntrepreneurMiddleName string                `xml:"IndividualEntrepreneurMiddleName" json:"individualEntrepreneurMiddleName"`
+	IndividualEntrepreneurAddress    string                `xml:"IndividualEntrepreneurAddress" json:"individualEntrepreneurAddress"`
+	IndividualEntrepreneurEGRIP      string                `xml:"IndividualEntrepreneurEGRIP" json:"individualEntrepreneurEGRIP"`
+	IndividualEntrepreneurINN        string                `xml:"IndividualEntrepreneurINN" json:"individualEntrepreneurINN"`
+	ActualEducationOrganization      EducationOrganization `xml:"ActualEducationOrganization" json:"actualEducationOrganization"`
+	Supplements                      []Supplement          `xml:"Supplements>Supplement" json:"supplements"`
+	Decisions                        []Decision            `xml:"Decisions>Decision" json:"decisions"`
 }
 
 type EducationOrganization struct {
-	XMLName                  xml.Name `xml:"ActualEducationOrganization"`
-	ID                       string   `xml:"Id"`
-	FullName                 string   `xml:"FullName"`
-	ShortName                string   `xml:"ShortName"`
-	HeadEduOrgId             string   `xml:"HeadEduOrgId"`
-	IsBranch                 string   `xml:"IsBranch"` // 1 - да, 0 - нет
-	PostAddress              string   `xml:"PostAddress"`
-	Phone                    string   `xml:"Phone"`
-	Fax                      string   `xml:"Fax"`
-	Email                    string   `xml:"Email"`
-	WebSite                  string   `xml:"WebSite"`
-	OGRN                     string   `xml:"OGRN"`
-	INN                      string   `xml:"INN"`
-	KPP                      string   `xml:"KPP"`
-	HeadPost                 string   `xml:"HeadPost"`
-	HeadName                 string   `xml:"HeadName"`
-	FormName                 string   `xml:"FormName"`
-	KindName                 string   `xml:"KindName"`
-	TypeName                 string   `xml:"TypeName"`
-	RegionName               string   `xml:"RegionName"`
-	FederalDistrictShortName string   `xml:"FederalDistrictShortName"`
-	FederalDistrictName      string   `xml:"FederalDistrictName"`
+	XMLName                  xml.Name `xml:"ActualEducationOrganization" json:"-"`
+	ID                       string   `xml:"Id" json:"id"`
+	FullName                 string   `xml:"FullName" json:"fullName"`
+	ShortName                string   `xml:"ShortName" json:"shortName"`
+	HeadEduOrgId             string   `xml:"HeadEduOrgId" json:"headEduOrgId"`
+	IsBranch                 string   `xml:"IsBranch" json:"isBranch"` // 1 - да, 0 - нет
+	PostAddress              string   `xml:"PostAddress" json:"postAddress"`
+	Phone                    string   `xml:"Phone" json:"phone"`
+	Fax                      string   `xml:"Fax" json:"fax"`
+	Email                    string   `xml:"Email" json:"email"`
+	WebSite                  string   `xml:"WebSite" json:"webSite"`
+	OGRN                     string   `xml:"OGRN" json:"ogrn"`
+	INN                      string   `xml:"INN" json:"inn"`
+	KPP                      string   `xml:"KPP" json:"kpp"`
+	HeadPost                 string   `xml:"HeadPost" json:"headPost"`
+	HeadName                 string   `xml:"HeadName" json:"headName"`
+	FormName                 string   `xml:"FormName" json:"formName"`
+	KindName                 string   `xml:"KindName" json:"kindName"`
+	TypeName                 string   `xml:"TypeName" json:"typeName"`
+	RegionName               string   `xml:"RegionName" json:"regionName"`
+	FederalDistrictShortName string   `xml:"FederalDistrictShortName" json:"federalDistrictShortName"`
+	FederalDistrictName      string   `xml:"FederalDistrictName" json:"federalDistrictName"`
 }
 
 type Supplement struct {
-	XMLName                     xml.Name              `xml:"Supplement"`
-	ID                          string                `xml:"Id"`
-	StatusName                  string                `xml:"StatusName"`
-	StatusCode                  string                `xml:"StatusCode"`
-	Number                      string                `xml:"Number"`
-	SerialNumber                string                `xml:"SerialNumber"`
-	FormNumber                  string                `xml:"FormNumber"`
-	IssueDate                   string                `xml:"IssueDate"`
-	IsForBranch                 string                `xml:"IsForBranch"` // 1 - филиалу, 0 - головной
-	Note                        string                `xml:"Note"`
-	EduOrgFullName              string                `xml:"EduOrgFullName"`
-	EduOrgShortName             string                `xml:"EduOrgShortName"`
-	EduOrgAddress               string                `xml:"EduOrgAddress"`
-	EduOrgKPP                   string                `xml:"EduOrgKPP"`
-	ActualEducationOrganization EducationOrganization `xml:"ActualEducationOrganization"`
-	EducationalPrograms         []EducationalProgram  `xml:"EducationalPrograms>EducationalProgram"`
+	XMLName                     xml.Name              `xml:"Supplement" json:"-"`
+	ID                          string                `xml:"Id" json:"id"`
+	StatusName                  string                `xml:"StatusName" json:"statusName"`
+	StatusCode                  string                `xml:"StatusCode" json:"statusCode"`
+	Number                      string                `xml:"Number" json:"number"`
+	SerialNumber                string                `xml:"SerialNumber" json:"serialNumber"`
+	FormNumber                  string                `xml:"FormNumber" json:"formNumber"`
+	IssueDate                   string                `xml:"IssueDate" json:"issueDate"`
+	IsForBranch                 string                `xml:"IsForBranch" json:"isForBranch"` // 1 - филиалу, 0 - головной
+	Note                        string                `xml:"Note" json:"note"`
+	EduOrgFullName              string                `xml:"EduOrgFullName" json:"eduOrgFullName"`
+	EduOrgShortName             string                `xml:"EduOrgShortName" json:"eduOrgShortName"`
+	EduOrgAddress               string                `xml:"EduOrgAddress" json:"eduOrgAddress"`
+	EduOrgKPP                   string                `xml:"EduOrgKPP" json:"eduOrgKPP"`
+	ActualEducationOrganization EducationOrganization `xml:"ActualEducationOrganization" json:"actualEducationOrganization"`
+	EducationalPrograms         []EducationalProgram  `xml:"EducationalPrograms>EducationalProgram" json:"educationalPrograms"`
 }
 
 type EducationalProgram struct {
-	XMLName            xml.Name `xml:"EducationalProgram"`
-	ID                 string   `xml:"Id"`
-	TypeName           string   `xml:"TypeName"`
-	EduLevelName       string   `xml:"EduLevelName"`
-	ProgrammName       string   `xml:"ProgrammName"`
-	ProgrammCode       string   `xml:"ProgrammCode"`
-	UGSName            string   `xml:"UGSName"`
-	UGSCode            string   `xml:"UGSCode"`
-	EduNormativePeriod string   `xml:"EduNormativePeriod"`
-	Qualification      string   `xml:"Qualification"`
-	IsAccredited       string   `xml:"IsAccredited"` // 0 - аккредитована, 1 - отказ
-	IsCanceled         string   `xml:"IsCanceled"`
-	IsSuspended        string   `xml:"IsSuspended"`
+	XMLName            xml.Name `xml:"EducationalProgram" json:"-"`
+	ID                 string   `xml:"Id" json:"id"`
+	TypeName           string   `xml:"TypeName" json:"typeName"`
+	EduLevelName       string   `xml:"EduLevelName" json:"eduLevelName"`
+	ProgrammName       string   `xml:"ProgrammName" json:"programmName"`
+	ProgrammCode       string   `xml:"ProgrammCode" json:"programmCode"`
+	UGSName            string   `xml:"UGSName" json:"ugsName"`
+	UGSCode            string   `xml:"UGSCode" json:"ugsCode"`
+	EduNormativePeriod string   `xml:"EduNormativePeriod" json:"eduNormativePeriod"`
+	Qualification      string   `xml:"Qualification" json:"qualification"`
+	IsAccredited       string   `xml:"IsAccredited" json:"isAccredited"` // 0 - аккредитована, 1 - отказ
+	IsCanceled         string   `xml:"IsCanceled" json:"isCanceled"`
+	IsSuspended        string   `xml:"IsSuspended" json:"isSuspended"`
 }
 
 type Decision struct {
-	XMLName             xml.Name `xml:"Decision"`
-	ID                  string   `xml:"Id"`
-	DecisionTypeName    string   `xml:"DecisionTypeName"`
-	OrderDocumentNumber string   `xml:"OrderDocumentNumber"`
-	OrderDocumentKind   string   `xml:"OrderDocumentKind"`
-	DecisionDate        string   `xml:"DecisionDate"`
+	XMLName             xml.Name `xml:"Decision" json:"-"`
+	ID                  string   `xml:"Id" json:"id"`
+	DecisionTypeName    string   `xml:"DecisionTypeName" json:"decisionTypeName"`
+	OrderDocumentNumber string   `xml:"OrderDocumentNumber" json:"orderDocumentNumber"`
+	OrderDocumentKind   string   `xml:"OrderDocumentKind" json:"orderDocumentKind"`
+	DecisionDate        string   `xml:"DecisionDate" json:"decisionDate"`
 }
