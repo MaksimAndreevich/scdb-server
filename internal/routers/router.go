@@ -32,7 +32,7 @@ func SetupRouter() *gin.Engine {
 	{
 		public.POST("/register", controllers.Register)
 		public.POST("/login", controllers.Login)
-		public.GET("/organisations/total", controllers.GetTotalOrganisations)
+		public.GET("/organizations/total", controllers.GetTotalOrganizations)
 
 	}
 
@@ -41,8 +41,8 @@ func SetupRouter() *gin.Engine {
 	protected.Use(middleware.AuthMiddleware())
 
 	{
-		protected.GET("/organisations", controllers.GetOrganisations)
-		protected.GET("/organisations/:id", controllers.GetOrganisationById)
+		protected.GET("/organizations", controllers.GetOrganizations)
+		protected.GET("/organizations/:id", controllers.GetOrganisationById)
 
 	}
 

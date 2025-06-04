@@ -8,7 +8,7 @@ import (
 	"gitlab.com/scdb/server/internal/repository"
 )
 
-func GetOrganisations(c *gin.Context) {
+func GetOrganizations(c *gin.Context) {
 
 	// Получаем query-параметры
 	search := c.DefaultQuery("search", "")
@@ -27,7 +27,7 @@ func GetOrganisations(c *gin.Context) {
 	}
 
 	// Получаем данные из репозитория
-	orgs, err := repository.GetOrganisations(search, limit, offset)
+	orgs, err := repository.GetOrganizations(search, limit, offset)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Ошибка при получении организаций"})

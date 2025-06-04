@@ -10,7 +10,7 @@ import (
 
 const Query = `SELECT COUNT(*) AS total FROM education_organizations;`
 
-func GetTotalOrganisations(c *gin.Context) {
+func GetTotalOrganizations(c *gin.Context) {
 
 	db := database.DB
 

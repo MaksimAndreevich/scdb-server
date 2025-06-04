@@ -25,7 +25,7 @@ const Query = `
 		LIMIT $2 OFFSET $3;
 	`
 
-func GetOrganisations(search string, limit, offset int) ([]models.EducationOrganization, error) {
+func GetOrganizations(search string, limit, offset int) ([]models.EducationOrganization, error) {
 	db := database.DB
 
 	rows, err := db.Query(Query, "%"+search+"%", limit, offset)
