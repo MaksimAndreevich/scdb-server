@@ -31,7 +31,7 @@ func LoadConfig() {
 		DBUser:     getEnv("DB_USER", "postgres"),
 		DBPassword: getEnv("DB_PASSWORD", "password"),
 		DBName:     getEnv("DB_NAME", "db"),
-		WEBUrl:     getEnv("WEB_URL", "http://localhost:3000"),
+		WEBUrl:     getEnv("WEB_URL", ""),
 	}
 
 	logger.Success("Конфигурация env загружена")
