@@ -13,6 +13,7 @@ type Config struct {
 	DBUser     string
 	DBPassword string
 	DBName     string
+	WEBUrl     string
 }
 
 var AppConfig *Config
@@ -30,6 +31,7 @@ func LoadConfig() {
 		DBUser:     getEnv("DB_USER", "postgres"),
 		DBPassword: getEnv("DB_PASSWORD", "password"),
 		DBName:     getEnv("DB_NAME", "db"),
+		WEBUrl:     getEnv("WEB_URL", "http://localhost:3000"),
 	}
 
 	logger.Success("Конфигурация env загружена")
