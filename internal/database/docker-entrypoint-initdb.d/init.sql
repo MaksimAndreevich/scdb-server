@@ -21,3 +21,34 @@ CREATE TABLE IF NOT EXISTS education_organizations (
     federal_district_short_name TEXT,
     federal_district_name TEXT
 ); 
+
+CREATE TABLE IF NOT EXISTS cities (
+    fias_id TEXT PRIMARY KEY,
+    address TEXT,
+    postal_code TEXT,
+    country TEXT,
+    federal_district TEXT,
+    region_type TEXT,
+    region TEXT,
+    area_type TEXT,
+    area TEXT,
+    city_type TEXT,
+    city TEXT,
+    settlement_type TEXT,
+    settlement TEXT,
+    kladr_id TEXT,
+    fias_level INTEGER,
+    capital_marker INTEGER,
+    okato TEXT,
+    oktmo TEXT,
+    tax_office TEXT,
+    timezone TEXT,
+    geo_lat DOUBLE PRECISION,
+    geo_lon DOUBLE PRECISION,
+    population INTEGER,
+    foundation_year INTEGER,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+

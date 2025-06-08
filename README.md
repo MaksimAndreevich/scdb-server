@@ -73,7 +73,7 @@ docker-compose up --build
 docker-compose up --no-cache
 ```
 
-3. Остановка проекта:
+3. Остановка проекта c дропом данных:
 
 ```bash
 docker-compose down -v
@@ -134,3 +134,7 @@ docker-compose logs -f
 - `region_name` - Субъект РФ
 - `federal_district_short_name` - Сокращенное наименование федерального округа
 - `federal_district_name` - Полное наименование федерального округа
+
+### Data
+
+Данные о городах взяты из (открытого проекта GitHub)[https://github.com/hflabs/city/blob/master/city.csv-metadata.json]
