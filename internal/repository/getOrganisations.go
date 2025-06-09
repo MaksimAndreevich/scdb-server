@@ -40,12 +40,13 @@ func GetOrganizations(search string, limit, offset int) ([]models.EducationOrgan
 
 	for rows.Next() {
 		var org models.EducationOrganization
+
 		err := rows.Scan(
 			&org.ID,
 			&org.FullName,
 			&org.ShortName,
 			&org.HeadEduOrgId,
-			&org.IsBranch,
+			org.IsBranch,
 			&org.PostAddress,
 			&org.Phone,
 			&org.Fax,
