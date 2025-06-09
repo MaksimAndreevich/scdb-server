@@ -28,7 +28,7 @@ func GetOrganisationById(id string) (*models.EducationOrganization, error) {
 		&org.ID,
 		&org.FullName,
 		&org.ShortName,
-		&org.HeadEduOrgId,
+		&org.HeadEduOrgID,
 		&org.IsBranch,
 		&org.PostAddress,
 		&org.Phone,
@@ -43,9 +43,8 @@ func GetOrganisationById(id string) (*models.EducationOrganization, error) {
 		&org.FormName,
 		&org.KindName,
 		&org.TypeName,
-		&org.RegionName,
-		&org.FederalDistrictShortName,
-		&org.FederalDistrictName,
+		&org.RegionID,
+		&org.FederalDistrictID,
 	)
 
 	if err != nil {
