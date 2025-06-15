@@ -39,11 +39,9 @@ func SetupRouter() *gin.Engine {
 	// Защищенные маршруты
 	protected := router.Group("/api")
 	protected.Use(middleware.AuthMiddleware())
-
 	{
 		protected.GET("/organizations", controllers.GetOrganizations)
 		protected.GET("/organizations/:id", controllers.GetOrganisationById)
-
 	}
 
 	return router

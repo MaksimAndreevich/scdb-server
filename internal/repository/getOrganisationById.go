@@ -13,8 +13,8 @@ const getByIDQuery = `
 		id, full_name, short_name, head_edu_org_id, is_branch,
 		post_address, phone, fax, email, web_site,
 		ogrn, inn, kpp, head_post, head_name,
-		form_name, kind_name, type_name, region_name,
-		federal_district_short_name, federal_district_name
+		form_name, kind_name, type_name, fk_city_id, fk_region_id,
+		fk_federal_district_id, fk_education_type_key
 	FROM education_organizations
 	WHERE id = $1;
 `
@@ -43,8 +43,10 @@ func GetOrganisationById(id string) (*models.EducationOrganization, error) {
 		&org.FormName,
 		&org.KindName,
 		&org.TypeName,
+		&org.CityID,
 		&org.RegionID,
 		&org.FederalDistrictID,
+		&org.EducationTypeKey,
 	)
 
 	if err != nil {

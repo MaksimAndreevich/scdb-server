@@ -33,3 +33,20 @@ type EducationOrganization struct {
 	FederalDistrictID int    `json:"federal_district_id" db:"fk_federal_district_id" xml:"-"`
 	EducationTypeKey  string `json:"education_type_key" db:"fk_education_type_key" xml:"-"`
 }
+
+// OrganizationResponse представляет ответ с организациями
+type OrganizationResponse struct {
+	ID                  string `json:"id"`
+	FullName            string `json:"full_name"`
+	ShortName           string `json:"short_name"`
+	PostAddress         string `json:"post_address"`
+	Phone               string `json:"phone"`
+	Email               string `json:"email"`
+	WebSite             string `json:"web_site"`
+	HeadName            string `json:"head_name"`
+	HeadPost            string `json:"head_post"`
+	EducationType       string `json:"education_type"`
+	CityName            string `json:"city_name"`
+	RegionName          string `json:"region_name"`
+	FederalDistrictName string `json:"federal_district_name"`
+}

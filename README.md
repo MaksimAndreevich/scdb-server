@@ -9,6 +9,7 @@
 - Docker & Docker Compose
 - Gin Web Framework
 - PostgreSQL Driver (lib/pq)
+- air для пересборки проекта во время изменения файлов go
 
 ## Структура проекта
 
@@ -51,6 +52,20 @@
 
 - Docker
 - Docker Compose
+
+### Разработка
+
+1. Установите зависимости:
+
+```bash
+go mod download
+```
+
+2. Запустить dev режим через (air)[https://github.com/air-verse/air]
+
+```bash
+air
+```
 
 ### Локальный запуск
 
