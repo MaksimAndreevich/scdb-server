@@ -23,35 +23,42 @@ const TotalCountByEducationTypeQuery = `
 		ORDER BY et.title;`
 
 func GetStats() (models.TotalCountStats, []models.TotalCountByEducationType, error) {
-
 	db := database.DB
 
 	var totalCount models.TotalCountStats
-	err := db.QueryRow(TotalCountQuery).Scan(&totalCount.TotalOrganizations, &totalCount.TotalDistricts, &totalCount.TotalRegions, &totalCount.TotalCities)
+	err := db.QueryRow(TotalCountQuery).Scan(
+		&totalCount.TotalOrganizations,
+		&totalCount.TotalDistricts,
+		&totalCount.TotalRegions,
+		&totalCount.TotalCities,
+	)
 
 	if err != nil {
 		logger.Error("[GET STATS REPOSITORY] Ошибка при получении общего количества организаций ", err)
 		return models.TotalCountStats{}, []models.TotalCountByEducationType{}, err
 	}
 
-	var totalCountByEducationType []models.TotalCountByEducationType
 	rows, err := db.Query(TotalCountByEducationTypeQuery)
+	if err != nil {
+		logger.Error("[GET STATS REPOSITORY] Ошибка при выполнении запроса статистики по типам образования ", err)
+		return models.TotalCountStats{}, []models.TotalCountByEducationType{}, err
+	}
+	defer rows.Close() // Важно закрыть rows
 
+	var totalCountByEducationType []models.TotalCountByEducationType
 	for rows.Next() {
 		var oneTypeStats models.TotalCountByEducationType
-
 		err := rows.Scan(&oneTypeStats.EducationType, &oneTypeStats.TotalCount)
-
 		if err != nil {
-			logger.Error("[GET STATS REPOSITORY] Ошибка при получении общего количества организаций по типу образования ", err)
+			logger.Error("[GET STATS REPOSITORY] Ошибка при сканировании строки статистики ", err)
 			return models.TotalCountStats{}, []models.TotalCountByEducationType{}, err
 		}
-
 		totalCountByEducationType = append(totalCountByEducationType, oneTypeStats)
 	}
 
-	if err != nil {
-		logger.Error("[GET STATS REPOSITORY] Ошибка при получении общего количества организаций по типу образования ", err)
+	// Проверяем ошибки после итерации
+	if err = rows.Err(); err != nil {
+		logger.Error("[GET STATS REPOSITORY] Ошибка при итерации по строкам статистики ", err)
 		return models.TotalCountStats{}, []models.TotalCountByEducationType{}, err
 	}
 
