@@ -8,12 +8,15 @@ import (
 )
 
 type Config struct {
-	DBHost     string
-	DBPort     string
-	DBUser     string
-	DBPassword string
-	DBName     string
-	WEBUrl     string
+	DBHost           string
+	DBPort           string
+	DBUser           string
+	DBPassword       string
+	DBName           string
+	DBMaxConnections string
+	DBConnTimeout    string
+	DBSSLMode        string
+	WEBUrl           string
 }
 
 var AppConfig *Config
@@ -26,12 +29,15 @@ func LoadConfig() {
 	}
 
 	AppConfig = &Config{
-		DBHost:     getEnv("DB_HOST", "localhost"),
-		DBPort:     getEnv("DB_PORT", "5432"),
-		DBUser:     getEnv("DB_USER", "postgres"),
-		DBPassword: getEnv("DB_PASSWORD", "password"),
-		DBName:     getEnv("DB_NAME", "db"),
-		WEBUrl:     getEnv("WEB_URL", ""),
+		DBHost:           getEnv("DB_HOST", "localhost"),
+		DBPort:           getEnv("DB_PORT", "5432"),
+		DBUser:           getEnv("DB_USER", "postgres"),
+		DBPassword:       getEnv("DB_PASSWORD", "password"),
+		DBName:           getEnv("DB_NAME", "db"),
+		DBMaxConnections: getEnv("DB_MAX_CONNECTIONS", "100"),
+		DBConnTimeout:    getEnv("DB_CONN_TIMEOUT", "30"),
+		DBSSLMode:        getEnv("DB_SSL_MODE", "require"),
+		WEBUrl:           getEnv("WEB_URL", ""),
 	}
 
 	logger.Success("Конфигурация env загружена")
