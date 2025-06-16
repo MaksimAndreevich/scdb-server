@@ -6,10 +6,6 @@ services:
     container_name: scdb-postgres
     restart: always
     env_file: .env
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
     ports:
       - "5432:5432"
     volumes:
@@ -28,12 +24,6 @@ services:
     env_file: .env
     ports:
       - "8080:8080"
-    environment:
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_USER=user
-      - DB_PASSWORD=password
-      - DB_NAME=db
     depends_on:
       db:
         condition: service_healthy
