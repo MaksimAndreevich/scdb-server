@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:17.4
+    container_name: scdb-postgres-demo
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data_demo:/var/lib/postgresql/data
+      - ./internal/database/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: scdb-server-demo
+    restart: always
+    env_file: .env.demo
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_NAME=db
+      - DEMO_MODE=true
+      - DEMO_IMAGE_ID=${DEMO_IMAGE_ID:-demo-default}
+    # Базовые ограничения безопасности
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    # Запрещаем exec и терминал
+    tty: false
+    stdin_open: false
+    # Ограничиваем ресурсы
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.3"
+    # Монтируем только необходимые volumes
+    volumes:
+      - demo_stats:/app/data:rw # Только для записи статистики
+    # Дополнительные ограничения
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+
+volumes:
+  db_data_demo:
+  demo_stats:

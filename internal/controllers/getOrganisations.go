@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"gitlab.com/scdb/server/internal/config"
 	"gitlab.com/scdb/server/internal/repository"
 )
 
@@ -21,6 +22,11 @@ func GetOrganizations(c *gin.Context) {
 
 	if perPage < 1 {
 		perPage = 20
+	}
+
+	// В демо-режиме ограничиваем размер страницы
+	if config.AppConfig.DemoMode && perPage > 50 {
+		perPage = 50
 	}
 
 	// Получаем опциональные параметры фильтрации

@@ -1,0 +1,70 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# IDE и редакторы
+.vscode/
+.idea/
+cursor
+*.swp
+*.swo
+*~
+
+# Временные файлы
+tmp/
+temp/
+*.tmp
+*.log
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Документация
+README.md
+docs/
+*.md
+
+# Конфигурация
+.env*
+.air.toml
+
+# Логи и отладочные файлы
+*.log
+debug/
+
+# Тестовые данные
+testdata/
+tests/
+
+# Демо файлы (если не нужны в образе)
+demo-data/
+scripts/
+
+# Кеш и зависимости (если есть)
+.cache/
+node_modules/
+
+# Бэкапы
+*.sql
+*.dump
+backup_*
+
+# Файлы статистики демо (если не нужны в образе)
+demo_stats.json

@@ -113,6 +113,36 @@ go run main.go
 air
 ```
 
+### Как создать DEMO образ?
+
+1. Создаем демо-образ
+
+```bash
+docker-compose -f docker-compose.demo.yml up -d
+```
+
+2. Наполняем DB данными использую при этом сервис [UPDATER](https://gitlab.com/scdb/updater)
+
+3. Подключаемся к db и вручную выполнсяем ОБФУСКАЦИЮ данных с помощью скрипта sql database/obfuscate_database.sql
+
+4. Создаем образ server с данными
+
+```bash
+docker commit scdb-server-demo scdb-server-demo:v1.0
+```
+
+5. Сохраняем образ server в файл
+
+```bash
+docker save scdb-server-demo:v1.0 | gzip > ../demo/scdb-server-demo.tar.gz
+```
+
+6. Создаем дамп базы данных и сохраняем в ../demo/ (контейнер должен быть запущен)
+
+````bash
+docker exec scdb-postgres-demo pg_dump -U postgres -d db > ../demo/demo-database-dump.sql
+```
+
 ## Роадмап
 
 ### 1. Безопасность и Авторизация (Высокий приоритет)
@@ -154,3 +184,4 @@ air
 - [ ] Интеграционные тесты
 - [ ] Нагрузочное тестирование
 - [ ] Тестирование безопасности
+````
