@@ -4,8 +4,8 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	"gitlab.com/scdb/server/internal/logger"
-	"gitlab.com/scdb/server/internal/utils"
+	"github.com/scdb/server/internal/logger"
+	"github.com/scdb/server/internal/utils"
 )
 
 type Config struct {

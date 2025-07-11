@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"gitlab.com/scdb/server/internal/database"
-	"gitlab.com/scdb/server/internal/logger"
-	"gitlab.com/scdb/server/internal/models"
+	"github.com/scdb/server/internal/database"
+	"github.com/scdb/server/internal/logger"
+	"github.com/scdb/server/internal/models"
 )
 
 const TotalCountQuery = `

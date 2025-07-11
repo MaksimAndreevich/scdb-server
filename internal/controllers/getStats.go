@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/scdb/server/internal/repository"
+	"github.com/scdb/server/internal/repository"
 )
 
 const TotalCountQuery = `

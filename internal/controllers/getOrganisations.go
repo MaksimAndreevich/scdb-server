@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/scdb/server/internal/config"
-	"gitlab.com/scdb/server/internal/repository"
+	"github.com/scdb/server/internal/config"
+	"github.com/scdb/server/internal/repository"
 )
 
 // GetOrganizations обрабатывает GET /api/organizations?search=Борисовские пруды&federal_district_id=1&region_id=77&city_id=0c5b2444-70a0-4932-980c-b4dc0d3f02b5&education_type_key=general_education&page=1&per_page=20

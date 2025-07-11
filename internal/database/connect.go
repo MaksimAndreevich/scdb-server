@@ -7,8 +7,8 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
-	"gitlab.com/scdb/server/internal/config"
-	"gitlab.com/scdb/server/internal/logger"
+	"github.com/scdb/server/internal/config"
+	"github.com/scdb/server/internal/logger"
 )
 
 var DB *sql.DB

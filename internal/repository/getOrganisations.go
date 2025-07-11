@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"gitlab.com/scdb/server/internal/database"
-	"gitlab.com/scdb/server/internal/logger"
-	"gitlab.com/scdb/server/internal/models"
+	"github.com/scdb/server/internal/database"
+	"github.com/scdb/server/internal/logger"
+	"github.com/scdb/server/internal/models"
 )
 
 // GetOrganizations получает список организаций с фильтрацией и пагинацией

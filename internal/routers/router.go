@@ -5,9 +5,9 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"gitlab.com/scdb/server/internal/config"
-	"gitlab.com/scdb/server/internal/controllers"
-	"gitlab.com/scdb/server/internal/middleware"
+	"github.com/scdb/server/internal/config"
+	"github.com/scdb/server/internal/controllers"
+	"github.com/scdb/server/internal/middleware"
 )
 
 func SetupRouter() *gin.Engine {

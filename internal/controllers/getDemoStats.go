@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/scdb/server/internal/middleware"
+	"github.com/scdb/server/internal/middleware"
 )
 
 func GetDemoStats(c *gin.Context) {
