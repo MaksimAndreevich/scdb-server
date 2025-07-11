@@ -206,7 +206,3 @@ docker exec scdb-postgres-demo pg_dump -U postgres -d db > ../demo/demo-database
 - [ ] Интеграционные тесты
 - [ ] Нагрузочное тестирование
 - [ ] Тестирование безопасности
-
-```
-
-```
