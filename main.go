@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/scdb/server/internal/config"
-	"github.com/scdb/server/internal/database"
-	"github.com/scdb/server/internal/routers"
+	"scdb-server/internal/config"
+	"scdb-server/internal/database"
+	"scdb-server/internal/routers"
 )
 
 func main() {

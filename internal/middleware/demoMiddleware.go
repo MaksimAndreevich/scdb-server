@@ -8,8 +8,9 @@ import (
 	"sync"
 	"time"
 
+	"scdb-server/internal/config"
+
 	"github.com/gin-gonic/gin"
-	"github.com/scdb/server/internal/config"
 )
 
 // DemoLimiter хранит информацию о лимитах для демо-образа

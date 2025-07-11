@@ -3,8 +3,9 @@ package controllers
 import (
 	"net/http"
 
+	"scdb-server/internal/middleware"
+
 	"github.com/gin-gonic/gin"
-	"github.com/scdb/server/internal/middleware"
 )
 
 func GetDemoStats(c *gin.Context) {

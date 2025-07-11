@@ -3,9 +3,10 @@ package config
 import (
 	"os"
 
+	"scdb-server/internal/logger"
+	"scdb-server/internal/utils"
+
 	"github.com/joho/godotenv"
-	"github.com/scdb/server/internal/logger"
-	"github.com/scdb/server/internal/utils"
 )
 
 type Config struct {

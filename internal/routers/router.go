@@ -3,11 +3,12 @@ package routers
 import (
 	"time"
 
+	"scdb-server/internal/config"
+	"scdb-server/internal/controllers"
+	"scdb-server/internal/middleware"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/scdb/server/internal/config"
-	"github.com/scdb/server/internal/controllers"
-	"github.com/scdb/server/internal/middleware"
 )
 
 func SetupRouter() *gin.Engine {

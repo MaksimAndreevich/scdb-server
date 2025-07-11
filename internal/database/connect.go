@@ -6,9 +6,10 @@ import (
 	"strconv"
 	"time"
 
+	"scdb-server/internal/config"
+	"scdb-server/internal/logger"
+
 	_ "github.com/lib/pq"
-	"github.com/scdb/server/internal/config"
-	"github.com/scdb/server/internal/logger"
 )
 
 var DB *sql.DB

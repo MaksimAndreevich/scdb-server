@@ -1,4 +1,4 @@
-module github.com/scdb/server
+module scdb-server
 
 go 1.24.3
 

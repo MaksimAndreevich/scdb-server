@@ -3,8 +3,9 @@ package controllers
 import (
 	"net/http"
 
+	"scdb-server/internal/repository"
+
 	"github.com/gin-gonic/gin"
-	"github.com/scdb/server/internal/repository"
 )
 
 func GetOrganisationById(c *gin.Context) {
