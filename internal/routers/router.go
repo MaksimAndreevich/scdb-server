@@ -31,7 +31,6 @@ func SetupRouter() *gin.Engine {
 
 	// Публичные маршруты
 	public := router.Group("/api")
-
 	{
 		public.POST("/register", controllers.Register)
 		public.POST("/login", controllers.Login)
